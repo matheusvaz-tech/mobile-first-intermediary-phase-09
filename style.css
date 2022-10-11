@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Palanquin&family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Palanquin&family=Roboto:wght@400;700&family=Staatliches&display=swap");
 
 * {
   margin: 0;
@@ -9,6 +9,7 @@
 :root {
   --ff-heading: "Staatliches", monospace;
   --ff-body: "Palanquin", sans-serif;
+  --ff-footer: "Roboto", sans-serif;
 
   --fs-heading: 2.5rem;
   --fs-body: 1rem;
@@ -65,11 +66,9 @@ header h1 {
 }
 
 main {
-  margin: 0.75rem auto 3.5rem;
+  margin: 0.75rem auto 1rem;
 
   padding: 0 2rem;
-
-  max-width: 32rem;
 }
 
 main p {
@@ -102,16 +101,16 @@ div img {
 }
 
 section div:nth-child(2n + 1) img {
-  height: 16rem;
+  height: 12rem;
   object-fit: cover;
 }
 
 section div:nth-child(2n) img {
-  height: 28rem;
+  height: 20rem;
   object-fit: cover;
 }
 
-div span {
+main section div span {
   font-family: var(--ff-heading);
   letter-spacing: 0.12rem;
 
@@ -128,6 +127,99 @@ div span {
   right: 1rem;
 
   animation: topdown 0.8s;
+}
+
+@media (min-width: 1200px) {
+  body {
+    display: flex;
+  }
+
+  body div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  header {
+    width: 38rem;
+    height: 100vh;
+  }
+
+  header p {
+    margin: 2rem 3rem auto;
+    font-size: 1.25rem;
+    color: var(--f-color-heading);
+    text-align: center;
+  }
+
+  .principal {
+    padding: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main p {
+    display: none;
+  }
+
+  section {
+    display: grid;
+    column-gap: 2rem;
+    grid-template-areas:
+      "A B C"
+      "D B F"
+      "D E F";
+  }
+
+  section div {
+    width: 16rem;
+  }
+
+  section div:nth-child(1) {
+    grid-area: A;
+  }
+
+  section div:nth-child(2) {
+    grid-area: B;
+  }
+
+  section div:nth-child(3) {
+    grid-area: C;
+  }
+
+  section div:nth-child(4) {
+    grid-area: D;
+  }
+
+  section div:nth-child(5) {
+    grid-area: E;
+  }
+
+  section div:nth-child(6) {
+    grid-area: F;
+  }
+
+  footer {
+    font-family: var(--ff-footer);
+    font-size: 1rem;
+
+    color: var(--f-color-body);
+  }
+
+  a {
+    color: var(--f-color-body);
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 1199px) {
+  header p,
+  footer {
+    display: none;
+  }
 }
 
 @keyframes topdown {
